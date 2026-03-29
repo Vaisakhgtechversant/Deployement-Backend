@@ -1,6 +1,6 @@
 const { mongoose } = require('mongoose');
 const db = require('../database/db');
-const dbLogin = require('../database/login');
+const dbLogin = require('../database/user');
 
 const allFoods = async (req, res) => {
     try {
@@ -95,27 +95,6 @@ const UpdateData = async (req, res) => {
 
     }
 }
-const login = async (req, res) => {
-    try {
-        const { email, password } = req.body
-        const result = await dbLogin.logins.findOne({
-            email,
-            password
-        })
-        if (result) {
-            res.status(200).json({
-                message: "login successfully!",
-                data: result
-            });
-        } else {
-            res.status(404).json({
-                message: "Invalid credentials",
-            });
-        }
-    } catch (err) {
 
-        res.status(500).json({ error: err.message });
-    }
-}
 
-module.exports = { allFoods, AddFood, deleteFood, gwtSingleData, UpdateData, login };
+module.exports = { allFoods, AddFood, deleteFood, gwtSingleData, UpdateData };

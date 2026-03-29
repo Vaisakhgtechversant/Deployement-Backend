@@ -9,6 +9,7 @@ server.use(express.json());
 const foodRouter = require('./router/foodRouter');
 
 // MOUNT ROUTER
+server.use(express.urlencoded({ extended: true }));
 server.use('/api', foodRouter);
 
 server.listen(8000, () => {
