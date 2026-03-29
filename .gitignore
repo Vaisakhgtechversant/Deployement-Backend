@@ -2,3 +2,5 @@
 node_modules
 controller/*firebase-adminsdk*.json
 .env
+controller/*firebase-adminsdk*.json
+.env
